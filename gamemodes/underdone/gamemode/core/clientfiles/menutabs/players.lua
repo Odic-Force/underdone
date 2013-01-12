@@ -4,7 +4,7 @@ PANEL = {}
 
 function PANEL:Init()
 	self.MainList = CreateGenericList(self, 2, false, true)
-	self.ServerPlayerList = CreateGenericListItem(20, "Server", #player.GetAll() .. " Player(s)", "gui/server", clrTan, true, true)
+	self.ServerPlayerList = CreateGenericListItem(20, "Server", #player.GetAll() .. " Player(s)", "icon16/server.png", clrTan, true, true)
 	self.MainList:AddItem(self.ServerPlayerList)
 	self:LoadPlayers()
 end
@@ -17,9 +17,9 @@ function PANEL:LoadPlayers()
 	if self.ServerPlayerList.ContentList then self.ServerPlayerList.ContentList:Clear() end
 	self.ServerPlayerList:SetDescText(#player.GetAll() .. " Player(s)")
 	if #(LocalPlayer().Squad or {}) > 1 && !self.SquadPlayerList then
-		self.SquadPlayerList = CreateGenericListItem(20, "Your Squad", "", "gui/silkicons/group", clrTan, true, true)
+		self.SquadPlayerList = CreateGenericListItem(20, "Your Squad", "", "icon16/group.png", clrTan, true, true)
 		if LocalPlayer():GetNWEntity("SquadLeader") != LocalPlayer() then
-			self.SquadPlayerList:AddButton("gui/silkicons/check_off", "Leave Squad", function() RunConsoleCommand("UD_LeaveSquad") end)
+			self.SquadPlayerList:AddButton("icon16/cross.png", "Leave Squad", function() RunConsoleCommand("UD_LeaveSquad") end)
 		end
 		self.MainList:AddItem(self.SquadPlayerList)
 	elseif #(LocalPlayer().Squad or {}) <= 1 && self.SquadPlayerList then
@@ -44,19 +44,19 @@ function PANEL:AddPlayer(pnlParent, plyPlayer)
 	ltiListItem:SetDescText("level " .. plyPlayer:GetLevel())
 	ltiListItem:SetColor(clrGray)
 	ltiListItem:SetAvatar(plyPlayer, 20)
-	if plyPlayer:IsAdmin() then ltiListItem:SetIcon("gui/admin") end
+	if plyPlayer:IsAdmin() then ltiListItem:SetIcon("icon16/shield.png") end
 	--Mutting
 	local fncToggleMute = function(btnMuteButton)
 		plyPlayer:SetMuted()
-		local strMuteIcon = "gui/sound_on"
+		local strMuteIcon = "icon16/sound.png"
 		local strMuteToolTip = "Mute"
-		if plyPlayer:IsMuted(plyPlayer) then strMuteIcon = "gui/sound_off" strMuteToolTip = "Un Mute" end
+		if plyPlayer:IsMuted(plyPlayer) then strMuteIcon = "icon16/sound_mute.png" strMuteToolTip = "Un Mute" end
 		btnMuteButton:SetMaterial(strMuteIcon)
 		btnMuteButton:SetTooltip(strMuteToolTip)
 	end
-	local strMuteIcon = "gui/sound_on"
+	local strMuteIcon = "icon16/sound.png"
 	local strMuteToolTip = "Mute"
-	if plyPlayer:IsMuted() then strMuteIcon = "gui/sound_off" strMuteToolTip = "Un Mute" end
+	if plyPlayer:IsMuted() then strMuteIcon = "icon16/sound_mute.png" strMuteToolTip = "Un Mute" end
 	--Private Messaging
 	local fncPrivateMessage = function()
 		GAMEMODE:DisplayPromt("string", "Private Message", function(strMessage)
@@ -66,7 +66,7 @@ function PANEL:AddPlayer(pnlParent, plyPlayer)
 	end
 	if pnlParent == self.ServerPlayerList && LocalPlayer() != plyPlayer then
 		local btnMuteButton = ltiListItem:AddButton(strMuteIcon, strMuteToolTip, fncToggleMute)
-		local btnPMButton = ltiListItem:AddButton("gui/email", "Private Message", fncPrivateMessage)
+		local btnPMButton = ltiListItem:AddButton("icon16/email_edit.png", "Private Message", fncPrivateMessage)
 	end
 	--Squad
 	local fncSquadInvite = function()
@@ -121,10 +121,10 @@ function PANEL:AddPlayer(pnlParent, plyPlayer)
 		end
 		GAMEMODE.ActiveMenu:Open()
 	end
-	local btnActionsButton = ltiListItem:AddButton("gui/options", "Actions", fncOpenMenu)
+	local btnActionsButton = ltiListItem:AddButton("icon16/cog.png", "Actions", fncOpenMenu)
 	if pnlParent == self.SquadPlayerList then
 		if LocalPlayer():GetNWEntity("SquadLeader") == LocalPlayer() && LocalPlayer():IsInSquad(plyPlayer) && LocalPlayer() != plyPlayer then
-			ltiListItem:AddButton("gui/silkicons/check_off", "Kick from Squad", fncSquadKick)
+			ltiListItem:AddButton("icon16/cross.png", "Kick from Squad", fncSquadKick)
 		end
 	end
 	ltiListItem.DoRightClick = fncOpenMenu
