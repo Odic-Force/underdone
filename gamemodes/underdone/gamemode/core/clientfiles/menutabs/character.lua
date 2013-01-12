@@ -99,7 +99,7 @@ function PANEL:LoadMasters()
 		pgbMasterBar:SetText(tblMasterTable.PrintName .. " Tier " .. intCurentLevel)
 		if LocalPlayer():GetMasterExp(strName) == LocalPlayer():GetMasterExpNextLevel(strName) - 1 then
 			if LocalPlayer():GetTotalMasters() < GAMEMODE.MaxMaxtersTiers then
-				pgbMasterBar.TierUp = CreateGenericImageButton(pgbMasterBar, "gui/arrow_up", "Tier Up", function()
+				pgbMasterBar.TierUp = CreateGenericImageButton(pgbMasterBar, "icon16/arrow_up.png", "Tier Up", function()
 					RunConsoleCommand("UD_BuyMasterLevel", strName)
 				end)
 			end
