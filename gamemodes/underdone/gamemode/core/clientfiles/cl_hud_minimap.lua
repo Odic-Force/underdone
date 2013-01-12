@@ -26,23 +26,23 @@ local function DrawUDMiniMap()
 	for _,v in pairs(ents.GetAll()) do
 		if IsValid(v) then
 			if v:IsPlayer() then
-				strMapIcon = "gui/player"
+				strMapIcon = "gui/player" -- I dont have any alternative
 			end
 			if v:IsNPC() then
 				local tblNPCTable = NPCTable(v:GetNWInt("npc"))
 				if !tblNPCTable then return end
 				if tblNPCTable.Appearance then
-					strMapIcon = "gui/silkicons/palette"
+					strMapIcon = "icon16/palette.png"
 				elseif tblNPCTable.Bank then
-					strMapIcon = "gui/silkicons/box"
+					strMapIcon = "icon16/box.png"
 				elseif tblNPCTable.Auction then
-					strMapIcon = "gui/silkicons/world"
+					strMapIcon = "icon16/world.png"
 				elseif tblNPCTable.Quest then
-					strMapIcon = "gui/silkicons/group"
+					strMapIcon = "icon16/group.png"
 				elseif tblNPCTable.Shop then
-					strMapIcon = "gui/silkicons/emoticon_smile"
+					strMapIcon = "icon16/emoticon_smile.png"
 				else
-					strMapIcon = "gui/silkicons/exclamation"
+					strMapIcon = "icon16/exclamation.png"
 				end
 			end
 			if v:IsNPC() or v:IsPlayer() then 	

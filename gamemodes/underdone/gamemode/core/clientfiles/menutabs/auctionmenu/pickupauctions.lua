@@ -23,7 +23,7 @@ function PANEL:LoadAuctions()
 					ltmAuction:SetItemIcon(tblInfo.Item, tblInfo.Amount, 30)
 					ltmAuction:SetNameText(ItemTable(tblInfo.Item).PrintName)
 					ltmAuction:SetDescText(tblInfo.TimeLeft .. " Hours Left")
-						ltmAuction:AddButton("gui/arrow_up", "Pick up Auction", function() RunConsoleCommand("UD_PickUpAuction", intKey) end)
+						ltmAuction:AddButton("icon16/arrow_up.png", "Pick up Auction", function() RunConsoleCommand("UD_PickUpAuction", intKey) end)
 					self.AuctionsList:AddItem(ltmAuction)
 				end
 			end

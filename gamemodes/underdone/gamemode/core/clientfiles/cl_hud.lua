@@ -167,7 +167,7 @@ function GM:DrawSquadMembers(intYOffset, intDirection)
 			draw.SimpleTextOutlined(plySquadMate:Nick() .. " lv." .. plySquadMate:GetLevel(), "Trebuchet18", 15, intYOffset - (intKey * intPadding * intDirection), clrDrakGray, 0, 0, 0, clrDrakGray)
 			jdraw.DrawHealthBar(plySquadMate:Health(), plySquadMate:GetNWInt("MaxHealth"), 15, intYOffset - ((intKey) * intPadding * intDirection) + 17, 250 - 10, 13)
 			if plySquadMate == LocalPlayer():GetNWEntity("SquadLeader") then
-				jdraw.DrawIcon("gui/silkicons/star", 3, intYOffset - 5 - (intKey * intPadding * intDirection), 16)
+				jdraw.DrawIcon("icon16/star.png", 3, intYOffset - 5 - (intKey * intPadding * intDirection), 16)
 			end
 			intKey = intKey + 1
 		end

@@ -25,7 +25,7 @@ function PANEL:Init()
 	GAMEMODE:AddHoverObject(self.inventorylist.pnlCanvas, self.inventorylist)
 	
 	self.WeightBar = CreateGenericWeightBar(self, LocalPlayer().Weight or 0, LocalPlayer():GetMaxWeight())
-	self.LibraryButton = CreateGenericImageButton(self, "gui/book", "Library", function()
+	self.LibraryButton = CreateGenericImageButton(self, "icon16/book.png", "Library", function()
 		GAMEMODE.ActiveMenu = nil
 		GAMEMODE.ActiveMenu = DermaMenu()
 		local ReadSubMenu = GAMEMODE.ActiveMenu:AddSubMenu("Read ...")
