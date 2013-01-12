@@ -23,7 +23,7 @@ function PANEL:LoadPlayerAuctions()
 				ltmAuction:SetItemIcon(tblInfo.Item, tblInfo.Amount, 30)
 				ltmAuction:SetNameText(ItemTable(tblInfo.Item).PrintName)
 				ltmAuction:SetDescText("$" .. tblInfo.Price .. "   " .. math.Round(tblInfo.TimeLeft - (intCleanUpTime - intDefaultAuctionTime)) .. " Hours Left")
-				ltmAuction:AddButton("gui/silkicons/check_off", "Cancel Auction", function() 	RunConsoleCommand("UD_CancelAuction", intKey)end)
+				ltmAuction:AddButton("icon16/cross.png", "Cancel Auction", function() 	RunConsoleCommand("UD_CancelAuction", intKey)end)
 				self.PlayerAuctionsList:AddItem(ltmAuction)
 			end
 		end
