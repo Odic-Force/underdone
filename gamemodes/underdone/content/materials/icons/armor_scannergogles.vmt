@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "icons/armor_scannergogles"
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+	"$nolod" 1
+}

@@ -1,0 +1,7 @@
+"Gamemode"
+{
+	"base"		"base"
+	"title"		"UnderDone"
+	"maps"		"^ud_"
+	"menusystem"	"1"
+}

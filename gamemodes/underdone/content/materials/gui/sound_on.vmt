@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "gui/sound_on"
+	"$nolod" 1
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+	"$ignorez" 1
+}

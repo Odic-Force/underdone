@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "icons/junk_gnome"
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+	"$nolod" 1
+}
