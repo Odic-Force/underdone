@@ -113,7 +113,7 @@ function Player:SaveGame()
 	end	
 	local strSteamID = string.Replace(self:SteamID(), ":", "!")
 	if strSteamID != "STEAM_ID_PENDING" then
-		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
+		local strFileName = "underone/" .. strSteamID .. ".txt"
 		tblSaveTable.Exp = self:GetNWInt("exp")
 		file.Write(strFileName, util.TableToJSON(tblSaveTable))
 	end

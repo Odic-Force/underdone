@@ -141,12 +141,12 @@ function GM:BuildModel(tblModelTable)
 	local entReturnEnt = nil
 	local entNewPart = nil
 	for key, tblModelInfo in pairs(tblLoopTable) do
-		if CLIENT then
-			entNewPart = ents.CreateClientProp(tblModelInfo.Model)
-		else
+		if SERVER then
 			entNewPart = ents.Create("prop_physics")
-			entNewPart:SetModel(tblModelInfo.Model)
+		elseif CLIENT then
+			entNewPart = ents.CreateClientProp("prop_physics")
 		end
+		entNewPart:SetModel(tblModelInfo.Model)
 		if entReturnEnt then entNewPart:SetAngles(entReturnEnt:GetAngles()) end
 		if entReturnEnt then entNewPart:SetAngles(entNewPart:LocalToWorldAngles(tblModelInfo.Angle)) end
 		if !entReturnEnt then entNewPart:SetAngles(tblModelInfo.Angle) end
@@ -156,13 +156,11 @@ function GM:BuildModel(tblModelTable)
 		entNewPart:SetParent(entReturnEnt)
 		if SERVER then entNewPart:SetCollisionGroup(COLLISION_GROUP_WORLD) end
 		if tblModelInfo.Material then entNewPart:SetMaterial(tblModelInfo.Material) end
-		if tblModelInfo.Color then entNewPart:SetColor(tblModelInfo.Color.r, tblModelInfo.Color.g, tblModelInfo.Color.b, tblModelInfo.Color.a) end
+		if tblModelInfo.Color then entNewPart:SetColor( Color(tblModelInfo.Color.r, tblModelInfo.Color.g, tblModelInfo.Color.b, tblModelInfo.Color.a)) end
 		if tblModelInfo.Scale then
-			if CLIENT then
-				entNewPart:SetModelScale(tblModelInfo.Scale)
-			else
-				entNewPart:SetServerScale(tblModelInfo.Scale)
-			end
+			local mat = Matrix()
+			mat:Scale( tblModelInfo.Scale )
+			entNewPart:EnableMatrix( "RenderMultiply", mat )
 		end
 		entNewPart:Spawn()
 		if entReturnEnt then

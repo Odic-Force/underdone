@@ -93,7 +93,10 @@ if CLIENT then
 		local entEtity = ents.GetByIndex(args[1])
 		local vecScale = VectortizeString(args[2])
 		if IsValid(entEtity) && vecScale then
-			entEtity:SetModelScale(vecScale)
+			//entEtity:SetModelScale(vecScale)
+			local mat = Matrix()
+			mat:Scale( vecScale )
+			entEtity:EnableMatrix( "RenderMultiply", mat )
 		end
 	end)
 end
