@@ -1,3 +1,4 @@
+require("glon")
 AddCSLuaFile("shared.lua")
 AddCSLuaFile("core/sh_resource.lua")
 AddCSLuaFile("cl_init.lua")

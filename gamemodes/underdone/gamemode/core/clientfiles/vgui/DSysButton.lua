@@ -55,7 +55,7 @@ function PANEL:Paint( w, h)
 		
 		if ( self:GetDisabled() ) then
 			col = Color( 100, 100, 100, 255 )
-		elseif ( self.Depressed || self:GetSelected() ) then
+		elseif ( self.Depressed ) then
 			col = Color( 110, 150, 250, 255 )
 		elseif ( self.Hovered ) then
 			col = self.HoverColor or Color( 150, 150, 150, 255 )

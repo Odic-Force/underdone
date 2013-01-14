@@ -69,7 +69,7 @@ function GM:AdminBackup()
 				end
 			end
 			tblSaveTable.Exp = ply:GetNWInt("exp")
-			file.Write(strFileName, util.TableToJSON(tblSaveTable))
+			file.Write(strFileName, glon.encode(tblSaveTable))
 			ply:ChatPrint("Admin has saved a backup of player data")
 		end
 	end

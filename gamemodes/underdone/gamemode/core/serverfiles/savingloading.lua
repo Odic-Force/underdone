@@ -34,11 +34,11 @@ function Player:LoadGame()
 	local Data = {}
 	for name, stat in pairs(GAMEMODE.DataBase.Stats) do self:SetStat(name, stat.Default) end
 	local tblDecodedTable = {}
-	local strSteamID = string.Replace(self:SteamID(), ":", "!")
+	local strSteamID = string.Replace(self:SteamID(), ":", "a")
 	if strSteamID != "STEAM_ID_PENDING" then
 		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		if file.Exists(strFileName, "DATA") then
-			tblDecodedTable = util.JSONToTable(file.Read(strFileName, "DATA"))
+			tblDecodedTable = glon.decode(file.Read(strFileName, "DATA"))
 		else
 			self:NewGame()
 		end
@@ -111,11 +111,11 @@ function Player:SaveGame()
 			tblSaveTable.Friends[strFriends] = {}
 		end
 	end	
-	local strSteamID = string.Replace(self:SteamID(), ":", "!")
+	local strSteamID = string.Replace(self:SteamID(), ":", "a")
 	if strSteamID != "STEAM_ID_PENDING" then
-		local strFileName = "underone/" .. strSteamID .. ".txt"
+		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		tblSaveTable.Exp = self:GetNWInt("exp")
-		file.Write(strFileName, util.TableToJSON(tblSaveTable))
+		file.Write(strFileName, glon.encode(tblSaveTable))
 	end
 end
 

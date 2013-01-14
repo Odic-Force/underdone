@@ -1,5 +1,5 @@
 local function DrawNPCIcon(entNPC, posNPCPos)
-	local strIcon = "gui/silkicons/emoticon_smile"
+	local strIcon = "icon16/emoticon_smile.png"
 	surface.SetDrawColor(255, 255, 255, 255)
 	surface.SetMaterial(Material(strIcon))
 	surface.DrawTexturedRect(posNPCPos.x, posNPCPos.y - 25, 16, 16)

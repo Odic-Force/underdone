@@ -10,9 +10,9 @@ function PANEL:Init()
 	self.Frame:SetAlpha(0)
 	self.Frame:MakePopup()
 	self.TabSheet = CreateGenericTabPanel(self.Frame)
-	self.InventoryTab = self.TabSheet:NewTab("Inventory", "inventorytab", "gui/silkicons/user", "Minipulate your Items")
-	self.CharacterTab = self.TabSheet:NewTab("Character", "charactertab", "gui/silkicons/user", "Customize you character")
-	self.PlayersTab = self.TabSheet:NewTab("Players", "playerstab", "gui/silkicons/group", "List of players")
+	self.InventoryTab = self.TabSheet:NewTab("Inventory", "inventorytab", "gui/player", "Minipulate your Items")
+	self.CharacterTab = self.TabSheet:NewTab("Character", "charactertab", "gui/player", "Customize you character")
+	self.PlayersTab = self.TabSheet:NewTab("Players", "playerstab", "icon16/group.png", "List of players")
 	self:PerformLayout()
 end
 
