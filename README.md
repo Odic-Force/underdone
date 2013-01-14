@@ -6,4 +6,6 @@ Garry's Mod 13 Underdone Gamemode
 Known Bugs
 =========
 
-None as of now.
+Invisible player on first spawn.
+Camera is too close to the player.
+Map causes stack overflows.
