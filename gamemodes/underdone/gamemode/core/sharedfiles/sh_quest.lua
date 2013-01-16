@@ -157,11 +157,12 @@ if SERVER then
 end
 
 if CLIENT then
+	//require('glon')
 	usermessage.Hook("UD_UpdateQuest", function(usrMsg)
 		local strQuest = usrMsg:ReadString()
 		local strIncomingInfo = usrMsg:ReadString()
 		--print(string.len(strQuest .. strIncomingInfo))
 		--print(strQuest .. strIncomingInfo)
-		LocalPlayer():UpdateQuest(strQuest, glon.decode(strIncomingInfo))
+		LocalPlayer():UpdateQuest(strQuest, util.JSONToTable(strIncomingInfo))
 	end)
 end
