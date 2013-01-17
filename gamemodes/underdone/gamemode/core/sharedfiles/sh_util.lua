@@ -326,7 +326,7 @@ if CLIENT then
 			local intGradDir = 1
 			if btnNewButton:GetDisabled() then
 				clrDrawColor = ColorCopy(clrGray, 100)
-			elseif btnNewButton.Depressed || btnNewButton:GetSelected() then
+			elseif btnNewButton.Depressed/* || btnNewButton:GetSelected()*/ then
 				intGradDir = -1
 			elseif btnNewButton.Hovered then
 			end

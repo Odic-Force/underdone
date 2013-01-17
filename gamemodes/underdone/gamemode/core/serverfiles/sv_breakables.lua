@@ -10,7 +10,10 @@ AddItem("models/props_junk/wood_crate002a.mdl", "item_rifleammo_small", 10)
 AddItem("models/props_junk/wood_crate002a.mdl", "item_buckshotammo_small", 10)
 AddItem("models/props_junk/wood_crate002a.mdl", "item_canmeat", 30)
 
-local function PropAdjustDamage(entVictim, entInflictor, entAttacker, intAmount, tblDamageInfo)
+local function PropAdjustDamage(entVictim, tblDamageInfo)
+	local entInflictor = tblDamageInfo:GetInflictor()
+	local entAttacker = tblDamageInfo:GetAttacker()
+	local intAmount	= tblDamageInfo:GetDamage()
 	if IsValid(entVictim) && entVictim:GetClass() == "prop_physics" then
 		local tblBreakTable = tblBreakables[entVictim:GetModel()]
 		if tblBreakTable && entAttacker:IsPlayer() then

@@ -31,7 +31,7 @@ function PANEL:Init()
 		local ReadSubMenu = GAMEMODE.ActiveMenu:AddSubMenu("Read ...")
 		for strBook, _ in pairs(LocalPlayer().Data.Library or {}) do
 			ReadSubMenu:AddOption(ItemTable(strBook).PrintName, function() RunConsoleCommand("UD_ReadBook", strBook) end)
-			ReadSubMenu.Panels[#ReadSubMenu.Panels]:SetToolTip(ItemTable(strBook).Desc)
+			ReadSubMenu.Panels[#ReadSubMenu:GetItems()]:SetToolTip(ItemTable(strBook).Desc)
 		end
 		local CraftSubMenu = GAMEMODE.ActiveMenu:AddSubMenu("Craft ...")
 		for strRecipe, _ in pairs(LocalPlayer().Recipes or {}) do
