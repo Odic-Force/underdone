@@ -53,7 +53,7 @@ if SERVER then
 		entViewEntity:SetNoDraw(true)
 		plySpawned:SetViewEntity(entViewEntity)
 	end
-	hook.Add("PlayerSpawn", "PlayerSpawnHook", function(ply) timer.Simple(0.5, function() PlayerSpawnHook(ply) end) end)
+	hook.Add("PlayerSpawn", "PlayerSpawnHook", function(ply) timer.Simple(1.2, function() PlayerSpawnHook(ply) end) end)
 else
 	hook.Add("Initialize", "InitAnimFix", function()
 		RunConsoleCommand("cl_predict", 0)
