@@ -117,6 +117,17 @@ if CLIENT then
 						entTarget:SetAngles(entTarget:LocalToWorldAngles(tblItemTable.Model[1].Angle))
 						entTarget:SetPos(tblAttachment.Pos)
 						entTarget:SetPos(entTarget:LocalToWorld(tblItemTable.Model[1].Position))
+						
+						if !plyPlayer:Alive() then
+							entTarget:SetNoDraw(true)
+						else
+							entTarget:SetNoDraw(false)
+						end
+						
+						if !plyPlayer:IsValid() then
+							entTarget:SetNoDraw(true)
+							SafeRemoveEntity(entTarget)
+						end
 					end
 					for k, kid in pairs(entTarget.Children or {}) do
 						kid:SetAngles(entTarget:GetAngles())
@@ -124,6 +135,17 @@ if CLIENT then
 						kid:SetPos(entTarget:GetPos())
 						kid:SetPos(kid:LocalToWorld(tblItemTable.Model[k + 1].Position))
 						kid:SetParent(entTarget)
+						
+						if !plyPlayer:Alive() then
+							kid:SetNoDraw(true)
+						else
+							kid:SetNoDraw(false)
+						end
+						
+						if !plyPlayer:IsValid() then
+							kid:SetNoDraw(true)
+							SafeRemoveEntity(kid)
+						end
 					end
 				end
 			end

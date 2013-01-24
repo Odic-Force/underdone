@@ -108,7 +108,7 @@ if SERVER then
 			elseif type(value) == "Entity" or type(value) == "Player" then umsg.Entity(value)
 			elseif type(value) == "Vector" then umsg.Vector(value)
 			elseif type(value) == "Angle" then umsg.Angle(value)
-			elseif type(value) == "table" then umsg.String(glon.encode(value)) end
+			elseif type(value) == "table" then umsg.String(util.TableToJSON(value)) end
 		end
 		umsg.End()
 	end
@@ -326,7 +326,7 @@ if CLIENT then
 			local intGradDir = 1
 			if btnNewButton:GetDisabled() then
 				clrDrawColor = ColorCopy(clrGray, 100)
-			elseif btnNewButton.Depressed || btnNewButton:GetSelected() then
+			elseif btnNewButton.Depressed/* || btnNewButton:GetSelected()*/ then
 				intGradDir = -1
 			elseif btnNewButton.Hovered then
 			end

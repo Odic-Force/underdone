@@ -35,8 +35,8 @@ function PANEL:Init()
 	self:SetMouseInputEnabled(true)
 	self.OnMousePressed = function(self,mousecode) self:MouseCapture(true) end
 	self.OnMouseReleased = function(self,mousecode) self:MouseCapture(false)
-	if mousecode == MOUSE_RIGHT then PCallError(self.DoRightClick,self) end
-	if mousecode == MOUSE_LEFT then PCallError(self.DoClick,self) end end
+	if mousecode == MOUSE_RIGHT then self.DoRightClick() end
+	if mousecode == MOUSE_LEFT then self.DoClick() end end
 	-------------------------
 	self.DoClick = function() self:SetExpanded(!self:GetExpanded()) end
 	self.DoRightClick = function() end

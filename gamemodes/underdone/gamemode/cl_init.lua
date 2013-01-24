@@ -22,7 +22,11 @@ surface.CreateFont( "MenuLarge", {
     weight = 600,
     antialias = true
 } )
-
+surface.CreateFont( "Trebuchet20", {
+    font = "Trebuchet MS",
+    size = 20,
+    weight = 900,
+} )
 -------------------------
 GM.TranslateColor = {}
 GM.TranslateColor["green"] = clrGreen

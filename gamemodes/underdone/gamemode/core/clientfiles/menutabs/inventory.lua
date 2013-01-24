@@ -31,7 +31,7 @@ function PANEL:Init()
 		local ReadSubMenu = GAMEMODE.ActiveMenu:AddSubMenu("Read ...")
 		for strBook, _ in pairs(LocalPlayer().Data.Library or {}) do
 			ReadSubMenu:AddOption(ItemTable(strBook).PrintName, function() RunConsoleCommand("UD_ReadBook", strBook) end)
-			ReadSubMenu.Panels[#ReadSubMenu.Panels]:SetToolTip(ItemTable(strBook).Desc)
+			//ReadSubMenu.Panels[#ReadSubMenu:GetItems()]:SetToolTip(ItemTable(strBook).Desc)
 		end
 		local CraftSubMenu = GAMEMODE.ActiveMenu:AddSubMenu("Craft ...")
 		for strRecipe, _ in pairs(LocalPlayer().Recipes or {}) do
@@ -53,10 +53,10 @@ function PANEL:Init()
 			for strMaster, intLevel in pairs(RecipeTable(strRecipe).RequiredMasters) do
 				strToolTip = strToolTip .. "\n" .. intLevel .. " " .. MasterTable(strMaster).PrintName
 			end
-			CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetToolTip(strToolTip)
+			//CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetToolTip(strToolTip)
 			if !LocalPlayer():CanMake(strRecipe) then
-				CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetDisabled(true)
-				CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetAlpha(100)
+				//CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetDisabled(true)
+				//CraftSubMenu.Panels[#CraftSubMenu.Panels]:SetAlpha(100)
 			end
 		end
 		GAMEMODE.ActiveMenu:Open()
