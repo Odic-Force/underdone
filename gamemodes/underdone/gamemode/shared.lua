@@ -109,6 +109,7 @@ AddPlayerModel( "models/player/group01/female_03.mdl" )
 AddPlayerModel( "models/player/group01/female_04.mdl" )
 AddPlayerModel( "models/player/group01/female_05.mdl" )
 AddPlayerModel( "models/player/group01/female_06.mdl" )
+--AddPlayerModel( "models/player/group01/female_07.mdl" )
 
 //Rebel
 AddPlayerModel( "models/player/group03/male_01.mdl" )
@@ -126,3 +127,4 @@ AddPlayerModel( "models/player/group03/female_03.mdl" )
 AddPlayerModel( "models/player/group03/female_04.mdl" )
 AddPlayerModel( "models/player/group03/female_05.mdl" )
 AddPlayerModel( "models/player/group03/female_06.mdl" )
+--AddPlayerModel( "models/player/group03/female_07.mdl" )
